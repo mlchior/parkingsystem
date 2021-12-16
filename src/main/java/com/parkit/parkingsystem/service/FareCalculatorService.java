@@ -13,7 +13,7 @@ public class FareCalculatorService {
         int inHour = ticket.getInTime().getHours();
         int outHour = ticket.getOutTime().getHours();
 
-        //TODO: Some tests are failing here. Need to check if this logic is correct
+        //: Some tests are failing here. Need to check if this logic is correct
         int duration = outHour - inHour;
 
         switch (ticket.getParkingSpot().getParkingType()){
