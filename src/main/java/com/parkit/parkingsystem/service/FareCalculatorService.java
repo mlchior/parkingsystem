@@ -24,8 +24,11 @@ public class FareCalculatorService {
         long durationTimeStamp  = outTimeStamp - inTimeStamp;*/
 
 
-        long x = ChronoUnit.HOURS.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
-        int duration = (int) x;
+      //  long nombredHeure = ChronoUnit.HOURS.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
+       // long nombredHeure = ChronoUnit.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
+
+        float duration = ChronoUnit.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
+        duration  /=60;
        // if (duration < 1) { ChronoUnit.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
         //ajouter le cas particulier sans qure ca casse les autres test
         //if duration < 1 alors  ChronoUnit.Minute
