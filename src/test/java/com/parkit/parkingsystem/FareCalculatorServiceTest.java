@@ -42,6 +42,7 @@ public class FareCalculatorServiceTest {
         fareCalculatorService.calculateFare(ticket);
         assertEquals(ticket.getPrice(), Fare.CAR_RATE_PER_HOUR);
     }
+
     @Test
     public void calculateFareCarMember(){
         Date inTime = new Date();
@@ -69,6 +70,20 @@ public class FareCalculatorServiceTest {
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket);
         assertEquals(ticket.getPrice(), Fare.BIKE_RATE_PER_HOUR);
+    }
+    @Test
+    public void calculateFareBikeMember(){
+        Date inTime = new Date();
+        inTime.setTime( System.currentTimeMillis() - (  60 * 60 * 1000) );
+        Date outTime = new Date();
+        ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.BIKE,false);
+
+        ticket.setMember(true);
+        ticket.setInTime(inTime);
+        ticket.setOutTime(outTime);
+        ticket.setParkingSpot(parkingSpot);
+        fareCalculatorService.calculateFare(ticket);
+        assertEquals(ticket.getPrice(), (0.95 * Fare.BIKE_RATE_PER_HOUR));
     }
 
     @Test
@@ -98,6 +113,20 @@ public class FareCalculatorServiceTest {
     }
 
     @Test
+    public void calculateFareBikeWithLessThanOneHourParkingTimeMember(){
+        Date inTime = new Date();
+        inTime.setTime( System.currentTimeMillis() - (  45 * 60 * 1000) );//45 minutes parking time should give 3/4th parking fare
+        Date outTime = new Date();
+        ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.BIKE,false);
+
+        ticket.setMember(true);
+        ticket.setInTime(inTime);
+        ticket.setOutTime(outTime);
+        ticket.setParkingSpot(parkingSpot);
+        fareCalculatorService.calculateFare(ticket);
+        assertEquals(((0.95*0.75) * Fare.BIKE_RATE_PER_HOUR), ticket.getPrice() );
+    }
+    @Test
     public void calculateFareBikeWithLessThanOneHourParkingTime(){
         Date inTime = new Date();
         inTime.setTime( System.currentTimeMillis() - (  45 * 60 * 1000) );//45 minutes parking time should give 3/4th parking fare
@@ -110,7 +139,6 @@ public class FareCalculatorServiceTest {
         fareCalculatorService.calculateFare(ticket);
         assertEquals((0.75 * Fare.BIKE_RATE_PER_HOUR), ticket.getPrice() );
     }
-
     @Test
     public void calculateFareCarWithLessThanOneHourParkingTime(){
         Date inTime = new Date();
@@ -123,6 +151,20 @@ public class FareCalculatorServiceTest {
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket);
         assertEquals( (0.75 * Fare.CAR_RATE_PER_HOUR) , ticket.getPrice());
+    }
+    @Test
+    public void calculateFareCarWithLessThanOneHourParkingTimeMember(){
+        Date inTime = new Date();
+        inTime.setTime( System.currentTimeMillis() - (  45 * 60 * 1000) );//45 minutes parking time should give 3/4th parking fare
+        Date outTime = new Date();
+        ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
+
+        ticket.setMember(true);
+        ticket.setInTime(inTime);
+        ticket.setOutTime(outTime);
+        ticket.setParkingSpot(parkingSpot);
+        fareCalculatorService.calculateFare(ticket);
+        assertEquals(((0.95*0.75) * Fare.CAR_RATE_PER_HOUR) , ticket.getPrice());
     }
 
     @Test
