@@ -8,10 +8,7 @@ import com.parkit.parkingsystem.model.Ticket;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Timestamp;
+import java.sql.*;
 
 public class TicketDAO {
 
@@ -58,6 +55,8 @@ public class TicketDAO {
                 ticket.setPrice(rs.getDouble(3));
                 ticket.setInTime(rs.getTimestamp(4));
                 ticket.setOutTime(rs.getTimestamp(5));
+                ticket.setMember(recurentUser(vehicleRegNumber));
+
             }
             dataBaseConfig.closeResultSet(rs);
             dataBaseConfig.closePreparedStatement(ps);
@@ -86,4 +85,32 @@ public class TicketDAO {
         }
         return false;
     }
+
+    public boolean recurentUser (String vehicleRegNumber) {
+        Connection con = null;
+        int result=-1;
+        try {
+            con = dataBaseConfig.getConnection();
+            PreparedStatement ps = con.prepareStatement(DBConstants.RECURRENT_USERS);
+            ps.setString(1, vehicleRegNumber);
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()){
+                result = rs.getInt(1);
+            }
+            if (result>1) {
+                return true;
+            }
+
+        } catch (Exception ex) {
+           logger.error("Error",ex);
+        } finally {
+            dataBaseConfig.closeConnection(con);
+        }
+        return false;
+    }
 }
+// todo set up commande sql pour recuperer le nombre d'occurence des vehicule enregistrer pour donner 5% de reduction si 2=< alors appliquer 5% reduction
+
+
+

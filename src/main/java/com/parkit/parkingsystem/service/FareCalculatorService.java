@@ -27,7 +27,7 @@ public class FareCalculatorService {
         //  long nombredHeure = ChronoUnit.HOURS.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
         // long nombredHeure = ChronoUnit.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
 
-        float duration = ChronoUnit.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
+        double duration = ChronoUnit.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
         duration /= 60;
         // if (duration < 1) { ChronoUnit.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
         //ajouter le cas particulier sans qure ca casse les autres test
@@ -57,6 +57,9 @@ public class FareCalculatorService {
                 }
                 default:
                     throw new IllegalArgumentException("Unkown Parking Type");
+            }
+            if (ticket.isMember()){
+                ticket.setPrice(ticket.getPrice()*0.95);
             }
         } else ticket.setPrice(0);
     }};

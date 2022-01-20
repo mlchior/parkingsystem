@@ -4,12 +4,26 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Ticket {
+
+
+
+
+
+    private boolean member;
     private int id;
     private ParkingSpot parkingSpot;
     private String vehicleRegNumber;
     private double price;
     private Date inTime;
     private Date outTime;
+
+    public boolean isMember() {
+        return member;
+    }
+
+    public void setMember(boolean member) {
+        this.member = member;
+    }
 
     public int getId() {
         return id;
@@ -58,4 +72,6 @@ public class Ticket {
     public void setOutTime(Date outTime) {
         this.outTime = outTime;
     }
+
+
 }
