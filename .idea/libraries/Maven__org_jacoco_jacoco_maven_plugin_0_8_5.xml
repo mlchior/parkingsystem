@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Maven: org.jacoco:jacoco-maven-plugin:maven-plugin:0.8.5">
+  <library name="Maven: org.jacoco:jacoco-maven-plugin:0.8.5">
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/jacoco/jacoco-maven-plugin/0.8.5/jacoco-maven-plugin-0.8.5.jar!/" />
     </CLASSES>
