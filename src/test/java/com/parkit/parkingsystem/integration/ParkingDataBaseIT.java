@@ -52,7 +52,7 @@ public class ParkingDataBaseIT {
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
         parkingService.processIncomingVehicle();
         //: check that a ticket is actualy saved in DB and Parking table is updated with availability
-    }
+    }// regarder mockito fuctin simuler BD
 
     @Test
     public void testParkingLotExit(){
@@ -61,5 +61,9 @@ public class ParkingDataBaseIT {
         parkingService.processExitingVehicle();
         //O: check that the fare generated and out time are populated correctly in the database
     }
-
+ @Test
+    public void testSaveTicket(){
+        je lui ddonne un ticket
+             m'assure que saveticket = true
+ }
 }
