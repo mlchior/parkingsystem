@@ -78,7 +78,8 @@
                                 <version>3.0.0-M5</version>
                             </plugin>
                     </reportPlugins>
-                </configuration>
+
+                                  </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -159,7 +160,5 @@
             </plugin>
         </plugins>
     </build>
-    <reporting>
 
-    </reporting>
 </project>

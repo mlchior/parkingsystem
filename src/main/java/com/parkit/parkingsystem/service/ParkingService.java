@@ -54,7 +54,7 @@ public class ParkingService {
             logger.error("Unable to process incoming vehicle",e);
         }
     }
-
+// entre utilisateur simulé
     private String getVehichleRegNumber() throws Exception {
         System.out.println("Please type the vehicle registration number and press enter key");
         return inputReaderUtil.readVehicleRegistrationNumber();

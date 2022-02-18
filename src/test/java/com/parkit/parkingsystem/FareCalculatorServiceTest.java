@@ -241,7 +241,8 @@ public class FareCalculatorServiceTest {
         fareCalculatorService.calculateFare(ticket);
         assertEquals( (0 * Fare.CAR_RATE_PER_HOUR) , ticket.getPrice());
 
-}    @Test
+}
+    @Test
     public void calculateFareBikeWithLessThan30MinTime(){
     Date inTime = new Date();
     inTime.setTime( System.currentTimeMillis() - (24 * 60 * 1000));
