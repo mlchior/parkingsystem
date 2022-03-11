@@ -7,7 +7,6 @@ import com.parkit.parkingsystem.model.ParkingSpot;
 import com.parkit.parkingsystem.model.Ticket;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.sql.*;
 
 public class TicketDAO {
@@ -29,7 +28,8 @@ public class TicketDAO {
             ps.setDouble(3, ticket.getPrice());
             ps.setTimestamp(4, new Timestamp(ticket.getInTime().getTime()));
             ps.setTimestamp(5, (ticket.getOutTime() == null)?null: (new Timestamp(ticket.getOutTime().getTime())) );
-            return ps.execute();
+
+            return ps.execute() ;
         }catch (Exception ex){
             logger.error("Error fetching next available slot",ex);
         }finally {
@@ -110,6 +110,7 @@ public class TicketDAO {
         }
         return false;
     }
+
 }
 
 

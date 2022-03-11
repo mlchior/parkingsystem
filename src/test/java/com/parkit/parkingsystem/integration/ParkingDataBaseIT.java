@@ -18,8 +18,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -51,7 +50,7 @@ public class ParkingDataBaseIT {
 
     @AfterAll
     private static void tearDown(){
-
+        dataBaseTestConfig.closeConnection(null);
     }
 
 
@@ -67,7 +66,7 @@ public class ParkingDataBaseIT {
 
 
     @Test
-    public void testParkingLotExitCar(){
+    public void ParkingLotExitCar(){
         testParkingACar();
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
         parkingService.processExitingVehicle();
@@ -76,10 +75,7 @@ public class ParkingDataBaseIT {
 
 
     }
- @Test
-    public void testSaveTicket(){
-       // je lui ddonne un ticket
-         //    m'assure que saveticket = true
 
- }
-}
+     }
+
+

@@ -36,7 +36,8 @@ public class ParkingSpot {
     public void setAvailable(boolean available) {
         isAvailable = available;
     }
-
+    //redefinir pour parking spot objet memoire
+    //ligne 45 cast
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
