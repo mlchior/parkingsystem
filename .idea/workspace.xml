@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f4e9c6be-50ef-4137-b08c-15dec5465329" name="Changes" comment="jacoco ok 68%&#10;find bug ok" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="Dev" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="javadoc" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_301.jdk/Contents/Home/src.zip!/java/util/Date.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/parkit/parkingsystem/ParkingServiceTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/parkit/parkingsystem/FareCalculatorServiceTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/parkit/parkingsystem/model/ParkingSpot.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/parkit/parkingsystem/integration/ParkingDataBaseIT.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/parkit/parkingsystem/service/InteractiveShell.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/schema/Generate POJOs.groovy" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/parkit/parkingsystem/integration/config/DataBaseTestConfig.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/parkit/parkingsystem/service/ParkingService.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/parkit/parkingsystem/integration/service/DataBasePrepareService.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/parkit/parkingsystem/service/FareCalculatorService.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="21Rykuc3qgHe4dsUgjJN8CqPJFp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.508046" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.parkit.parkingsystem.dao" />
+      <recent name="com.parkit.parkingsystem.service" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn --version" />
+      <command value="mvn surefire:test" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.parkit.parkingsystem.App" />
+      <module name="parking-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.parkit.parkingsystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FareCalculatorServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="parking-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.parkit.parkingsystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.parkit.parkingsystem" />
+      <option name="MAIN_CLASS_NAME" value="com.parkit.parkingsystem.FareCalculatorServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParkingDataBaseIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="parking-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.parkit.parkingsystem.integration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.parkit.parkingsystem.integration" />
+      <option name="MAIN_CLASS_NAME" value="com.parkit.parkingsystem.integration.ParkingDataBaseIT" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParkingDataBaseIT.ParkingLotExitCar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="parking-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.parkit.parkingsystem.integration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.parkit.parkingsystem.integration" />
+      <option name="MAIN_CLASS_NAME" value="com.parkit.parkingsystem.integration.ParkingDataBaseIT" />
+      <option name="METHOD_NAME" value="ParkingLotExitCar" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParkingServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="parking-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.parkit.parkingsystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.parkit.parkingsystem" />
+      <option name="MAIN_CLASS_NAME" value="com.parkit.parkingsystem.ParkingServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="JUnit.ParkingDataBaseIT.ParkingLotExitCar" />
+      <item itemvalue="JUnit.FareCalculatorServiceTest" />
+      <item itemvalue="JUnit.ParkingServiceTest" />
+      <item itemvalue="JUnit.ParkingDataBaseIT" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.ParkingDataBaseIT" />
+        <item itemvalue="JUnit.ParkingServiceTest" />
+        <item itemvalue="JUnit.FareCalculatorServiceTest" />
+        <item itemvalue="JUnit.ParkingDataBaseIT.ParkingLotExitCar" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f4e9c6be-50ef-4137-b08c-15dec5465329" name="Changes" comment="" />
+      <created>1637918344863</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1637918344863</updated>
+      <workItem from="1637918348337" duration="2958000" />
+      <workItem from="1637992015917" duration="597000" />
+      <workItem from="1638523350973" duration="545000" />
+      <workItem from="1638999020832" duration="595000" />
+      <workItem from="1639126399122" duration="1421000" />
+      <workItem from="1639134735455" duration="964000" />
+      <workItem from="1639142608844" duration="627000" />
+      <workItem from="1639157686130" duration="211000" />
+      <workItem from="1639637131015" duration="14823000" />
+      <workItem from="1639771156776" duration="442000" />
+      <workItem from="1640078166754" duration="265000" />
+      <workItem from="1640099799970" duration="6732000" />
+      <workItem from="1640248086285" duration="4584000" />
+      <workItem from="1640265566040" duration="580000" />
+      <workItem from="1640432029865" duration="3629000" />
+      <workItem from="1640589165660" duration="396000" />
+      <workItem from="1640853603469" duration="366000" />
+      <workItem from="1641193789731" duration="309000" />
+      <workItem from="1641211098635" duration="10297000" />
+      <workItem from="1641445873277" duration="183000" />
+      <workItem from="1641446549615" duration="160000" />
+      <workItem from="1641459975971" duration="3974000" />
+      <workItem from="1641541921887" duration="431000" />
+      <workItem from="1641542581279" duration="5547000" />
+      <workItem from="1642144952238" duration="11749000" />
+      <workItem from="1642341458747" duration="323000" />
+      <workItem from="1642667423489" duration="936000" />
+      <workItem from="1642668966144" duration="3627000" />
+      <workItem from="1642682368102" duration="2987000" />
+      <workItem from="1642691993860" duration="2506000" />
+      <workItem from="1642751585329" duration="4811000" />
+      <workItem from="1642758833457" duration="3945000" />
+      <workItem from="1642878878700" duration="592000" />
+      <workItem from="1643029956391" duration="2249000" />
+      <workItem from="1643099781926" duration="6062000" />
+      <workItem from="1643189735147" duration="2107000" />
+      <workItem from="1643204090701" duration="1345000" />
+      <workItem from="1643272115169" duration="2711000" />
+      <workItem from="1643294877117" duration="20000" />
+      <workItem from="1643355085983" duration="2361000" />
+      <workItem from="1643361768364" duration="4209000" />
+      <workItem from="1643431338071" duration="524000" />
+      <workItem from="1643704730480" duration="6121000" />
+      <workItem from="1643899683392" duration="514000" />
+      <workItem from="1643962082793" duration="3988000" />
+      <workItem from="1643967909070" duration="2073000" />
+      <workItem from="1644218471422" duration="9127000" />
+      <workItem from="1644246715544" duration="1142000" />
+      <workItem from="1644393508886" duration="3568000" />
+      <workItem from="1644503777461" duration="7848000" />
+      <workItem from="1645083462802" duration="1004000" />
+      <workItem from="1645172924102" duration="4241000" />
+      <workItem from="1645181264967" duration="431000" />
+      <workItem from="1645340727147" duration="457000" />
+      <workItem from="1645705185185" duration="417000" />
+      <workItem from="1645706122897" duration="2868000" />
+      <workItem from="1645780065898" duration="6431000" />
+      <workItem from="1646210797490" duration="1835000" />
+      <workItem from="1646294954140" duration="5291000" />
+      <workItem from="1646337812382" duration="13170000" />
+      <workItem from="1646638690552" duration="1323000" />
+      <workItem from="1646662449332" duration="156000" />
+      <workItem from="1646988083850" duration="14342000" />
+      <workItem from="1647017563481" duration="285000" />
+      <workItem from="1647020998816" duration="392000" />
+      <workItem from="1648058806763" duration="1944000" />
+      <workItem from="1648200824482" duration="4609000" />
+      <workItem from="1648214433379" duration="1051000" />
+      <workItem from="1648216837094" duration="355000" />
+      <workItem from="1648750833676" duration="2439000" />
+      <workItem from="1649341624227" duration="568000" />
+      <workItem from="1651138035654" duration="1815000" />
+      <workItem from="1653629473906" duration="1805000" />
+    </task>
+    <task id="LOCAL-00001" summary="Test ok">
+      <created>1641293313954</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1641293313954</updated>
+    </task>
+    <task id="LOCAL-00002" summary="free 30 min parking Time with test">
+      <created>1641304912847</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1641304912847</updated>
+    </task>
+    <task id="LOCAL-00003" summary="5% Discount add">
+      <created>1642675201445</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1642675201445</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add Test for 5% Discount">
+      <created>1642693778467</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1642693778468</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add reporting surefire">
+      <created>1643365361662</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1643365361662</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ParkingDataBaseIT TestParkingCar">
+      <created>1643969315017</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1643969315018</updated>
+    </task>
+    <task id="LOCAL-00007" summary="jacoco test">
+      <created>1645181504385</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1645181504385</updated>
+    </task>
+    <task id="LOCAL-00008" summary="jacoco test">
+      <created>1647030102406</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1647030102406</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="upstream/master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Test ok" />
+    <MESSAGE value="free 30 min parking Time with test" />
+    <MESSAGE value="5% Discount add" />
+    <MESSAGE value="add Test for 5% Discount" />
+    <MESSAGE value="add reporting surefire" />
+    <MESSAGE value="ParkingDataBaseIT TestParkingCar" />
+    <MESSAGE value="jacoco test" />
+    <MESSAGE value="jacoco ok 68%&#10;find bug ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="jacoco ok 68%&#10;find bug ok" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/parkit/parkingsystem/service/ParkingService.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

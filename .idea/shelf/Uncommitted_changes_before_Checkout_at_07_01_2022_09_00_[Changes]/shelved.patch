@@ -1,0 +1,19 @@
+Index: src/main/java/com/parkit/parkingsystem/service/FareCalculatorService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.parkit.parkingsystem.service;\n\nimport com.parkit.parkingsystem.constants.Fare;\nimport com.parkit.parkingsystem.model.Ticket;\n\nimport java.time.LocalDate;\nimport java.time.temporal.ChronoUnit;\nimport java.util.Date;\n\npublic class FareCalculatorService {\n\n    public void calculateFare(Ticket ticket) {\n        if ((ticket.getOutTime() == null) || (ticket.getOutTime().before(ticket.getInTime()))) {\n            throw new IllegalArgumentException(\"Out time provided is incorrect:\" + ticket.getOutTime().toString());\n        }\n\n        //convertir l'heure des date en milliseconde\n   /* Date inTime = ticket.getInTime();\n        long inTimeStamp = ticket.getInTime().getTime();\n\n    Date OutTime = ticket.getOutTime();\n        long outTimeStamp = ticket.getOutTime().getTime();\n\n        long durationTimeStamp  = outTimeStamp - inTimeStamp;*/\n\n\n        //  long nombredHeure = ChronoUnit.HOURS.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());\n        // long nombredHeure = ChronoUnit.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());\n\n        float duration = ChronoUnit.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());\n        duration /= 60;\n        // if (duration < 1) { ChronoUnit.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());\n        //ajouter le cas particulier sans qure ca casse les autres test\n        //if duration < 1 alors  ChronoUnit.Minute\n\n\n        // int inHour = ticket.getInTime().getHours();\n        //int outHour = ticket.getOutTime().getHours();\n\n        //: Some tests are failing here. Need to check if this logic is correct\n        // changer la calcul de date si plus de 24h\n        //  int duration = outHour - inHour;\n        // if  dayDateIn != dayDateOut\n        //  x = inTimeStamp - outTimeStamp\n        // x = 456454644\n        //\n\n        if (duration > 0.5) {\n            switch (ticket.getParkingSpot().getParkingType()) {\n                case CAR: {\n                    ticket.setPrice(duration * Fare.CAR_RATE_PER_HOUR);\n                    break;\n                }\n                case BIKE: {\n                    ticket.setPrice(duration * Fare.BIKE_RATE_PER_HOUR);\n                    break;\n                }\n                default:\n                    throw new IllegalArgumentException(\"Unkown Parking Type\");\n            }\n        } else ticket.setPrice(0);\n    }};
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/parkit/parkingsystem/service/FareCalculatorService.java b/src/main/java/com/parkit/parkingsystem/service/FareCalculatorService.java
+--- a/src/main/java/com/parkit/parkingsystem/service/FareCalculatorService.java	
++++ b/src/main/java/com/parkit/parkingsystem/service/FareCalculatorService.java	
+@@ -27,7 +27,7 @@
+         //  long nombredHeure = ChronoUnit.HOURS.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
+         // long nombredHeure = ChronoUnit.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
+ 
+-        float duration = ChronoUnit.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
++        double duration = ChronoUnit.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
+         duration /= 60;
+         // if (duration < 1) { ChronoUnit.MINUTES.between(ticket.getInTime().toInstant(), ticket.getOutTime().toInstant());
+         //ajouter le cas particulier sans qure ca casse les autres test

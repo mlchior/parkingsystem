@@ -1,0 +1,7 @@
+/Users/melchior/parkingsystem/src/test/java/com/parkit/parkingsystem/integration/ParkingDataBaseIT.java
+/Users/melchior/parkingsystem/src/test/java/com/parkit/parkingsystem/FareCalculatorServiceTest.java
+/Users/melchior/parkingsystem/src/test/java/com/parkit/parkingsystem/dao/TicketDAOTest.java
+/Users/melchior/parkingsystem/src/test/java/com/parkit/parkingsystem/ParkingServiceTest.java
+/Users/melchior/parkingsystem/src/test/java/com/parkit/parkingsystem/dao/ParkingSpotDAOTest.java
+/Users/melchior/parkingsystem/src/test/java/com/parkit/parkingsystem/integration/config/DataBaseTestConfig.java
+/Users/melchior/parkingsystem/src/test/java/com/parkit/parkingsystem/integration/service/DataBasePrepareService.java
