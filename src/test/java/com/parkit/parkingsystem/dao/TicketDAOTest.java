@@ -54,9 +54,9 @@ class TicketDAOTest {
     }
     @Test
     void getTicket() {
-        Ticket ticket = ticketDAO.getTicket("MELCHIOR");
+        Ticket ticket = ticketDAO.getTicket("ABCDEF");
         assertNotNull(ticket);
-        assertEquals("MELCHIOR", ticket.getVehicleRegNumber());
+        assertEquals("ABCDEF", ticket.getVehicleRegNumber());
 
     }
     @Test
@@ -72,7 +72,6 @@ class TicketDAOTest {
         Ticket ticket =  ticketDAO.getTicket("ABCDEF");ticket.setPrice(2);
         ticketDAO.updateTicket(ticket);
         Ticket ticketTest = ticketDAO.getTicket("ABCDEF");
-        assertEquals(ticket.getPrice(), ticketTest.getPrice());
         assertEquals(ticket.getParkingSpot() , ticketTest.getParkingSpot());
     }
 

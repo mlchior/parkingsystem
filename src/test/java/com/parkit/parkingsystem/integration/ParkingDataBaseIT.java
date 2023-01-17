@@ -61,7 +61,7 @@ public class ParkingDataBaseIT {
         Ticket ticket = ticketDAO.getTicket("ABCDEF");
         assertEquals(2, parkingSpotDAO.getNextAvailableSlot(ParkingType.CAR));
         //: check that a ticket is actualy saved in DB and Parking table is updated with availability
-    }// regarder mockito fuctin simuler BD
+    }
 
 
 

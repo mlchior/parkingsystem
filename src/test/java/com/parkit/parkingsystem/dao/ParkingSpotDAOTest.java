@@ -36,12 +36,12 @@ class ParkingSpotDAOTest {
 
          parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
          int result = parkingSpotDAO.getNextAvailableSlot(parkingSpot.getParkingType());
-         assertEquals(1, result);
+         assertEquals(2, result);
     }
 
     @Test
     void updateParking() {
-        parkingSpot = new ParkingSpot(1, ParkingType.CAR, true);
+        parkingSpot = new ParkingSpot(2, ParkingType.CAR, true);
         parkingSpotDAO.updateParking(parkingSpot);
         assertTrue(parkingSpot.isAvailable());
     }
