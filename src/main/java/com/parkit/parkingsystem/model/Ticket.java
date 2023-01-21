@@ -31,7 +31,7 @@ public class Ticket {
     }
 
     public ParkingSpot getParkingSpot() {
-        return parkingSpot;
+        return new ParkingSpot(parkingSpot.getId(), parkingSpot.getParkingType(), parkingSpot.isAvailable());
     }
 
     public void setParkingSpot(ParkingSpot parkingSpot) {
@@ -59,21 +59,36 @@ public class Ticket {
     }
 
     public Date getInTime() {
-        return new Date(inTime.getTime());
+        if (inTime != null) {
+            return new Date(inTime.getTime());
+        } else {
+            return null;
+        }
     }
 
     public void setInTime(Date inTime) {
-        Date date = new Date(inTime.getTime());
-        this.inTime = date;
+        if (inTime != null) {
+            this.inTime = new Date(inTime.getTime());
+        } else {
+            this.inTime = null;
+        }
     }
 
     public Date getOutTime() {
-        return new Date(outTime.getTime());
+       if (outTime != null) {
+            return new Date(outTime.getTime());
+        } else {
+            return null;
+        }
     }
 
     public void setOutTime(Date outTime) {
-        Date date = new Date(outTime.getTime());
-        this.outTime = date;
+        if (outTime != null) {
+            Date date = new Date(outTime.getTime());
+            this.outTime = date;
+        } else {
+            this.outTime = null;
+        }
     }
 
 
