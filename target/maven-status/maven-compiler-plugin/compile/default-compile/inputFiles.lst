@@ -1,0 +1,13 @@
+/Users/melchior/parkingsystem/src/main/java/com/parkit/parkingsystem/App.java
+/Users/melchior/parkingsystem/src/main/java/com/parkit/parkingsystem/service/InteractiveShell.java
+/Users/melchior/parkingsystem/src/main/java/com/parkit/parkingsystem/config/DataBaseConfig.java
+/Users/melchior/parkingsystem/src/main/java/com/parkit/parkingsystem/model/Ticket.java
+/Users/melchior/parkingsystem/src/main/java/com/parkit/parkingsystem/constants/DBConstants.java
+/Users/melchior/parkingsystem/src/main/java/com/parkit/parkingsystem/dao/ParkingSpotDAO.java
+/Users/melchior/parkingsystem/src/main/java/com/parkit/parkingsystem/constants/Fare.java
+/Users/melchior/parkingsystem/src/main/java/com/parkit/parkingsystem/constants/ParkingType.java
+/Users/melchior/parkingsystem/src/main/java/com/parkit/parkingsystem/service/FareCalculatorService.java
+/Users/melchior/parkingsystem/src/main/java/com/parkit/parkingsystem/service/ParkingService.java
+/Users/melchior/parkingsystem/src/main/java/com/parkit/parkingsystem/dao/TicketDAO.java
+/Users/melchior/parkingsystem/src/main/java/com/parkit/parkingsystem/model/ParkingSpot.java
+/Users/melchior/parkingsystem/src/main/java/com/parkit/parkingsystem/util/InputReaderUtil.java

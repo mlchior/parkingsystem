@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TicketDAO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">parking-system</a> &gt; <a href="index.source.html" class="el_package">com.parkit.parkingsystem.dao</a> &gt; <span class="el_source">TicketDAO.java</span></div><h1>TicketDAO.java</h1><pre class="source lang-java linenums">package com.parkit.parkingsystem.dao;
+
+import com.parkit.parkingsystem.config.DataBaseConfig;
+import com.parkit.parkingsystem.constants.DBConstants;
+import com.parkit.parkingsystem.constants.ParkingType;
+import com.parkit.parkingsystem.model.ParkingSpot;
+import com.parkit.parkingsystem.model.Ticket;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import java.sql.*;
+
+<span class="fc" id="L12">public class TicketDAO {</span>
+
+<span class="fc" id="L14">    private static final Logger logger = LogManager.getLogger(&quot;TicketDAO&quot;);</span>
+
+<span class="fc" id="L16">    public DataBaseConfig dataBaseConfig = new DataBaseConfig();</span>
+
+    public boolean saveTicket(Ticket ticket) {
+<span class="fc" id="L19">        Connection con = null;</span>
+
+<span class="fc" id="L21">        PreparedStatement ps = null;</span>
+        try {
+<span class="fc" id="L23">            con = dataBaseConfig.getConnection();</span>
+<span class="fc" id="L24">            ps = con.prepareStatement(DBConstants.SAVE_TICKET);</span>
+            //ID, PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME)
+
+<span class="fc" id="L27">            ps.setInt(1, ticket.getParkingSpot().getId());</span>
+<span class="fc" id="L28">            ps.setString(2, ticket.getVehicleRegNumber());</span>
+<span class="fc" id="L29">            ps.setDouble(3, ticket.getPrice());</span>
+<span class="nc" id="L30">            ps.setTimestamp(4, new Timestamp(ticket.getInTime().getTime()));</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">            ps.setTimestamp(5, (ticket.getOutTime() == null) ? null : (new Timestamp(ticket.getOutTime().getTime())));</span>
+
+<span class="nc" id="L33">            return ps.execute();</span>
+<span class="fc" id="L34">        } catch (Exception ex) {</span>
+<span class="fc" id="L35">            logger.error(&quot;Error fetching next available slot&quot;, ex);</span>
+        } finally {
+
+<span class="fc" id="L38">            dataBaseConfig.closePreparedStatement(ps);</span>
+<span class="fc" id="L39">            dataBaseConfig.closeConnection(con);</span>
+        }
+<span class="fc" id="L41">        return false;</span>
+    }
+
+    public Ticket getTicket(String vehicleRegNumber) {
+<span class="fc" id="L45">        Connection con = null;</span>
+<span class="fc" id="L46">        Ticket ticket = null;</span>
+<span class="fc" id="L47">        ResultSet rs = null;</span>
+<span class="fc" id="L48">        PreparedStatement ps = null;</span>
+        try {
+<span class="fc" id="L50">            con = dataBaseConfig.getConnection();</span>
+<span class="fc" id="L51">            ps = con.prepareStatement(DBConstants.GET_TICKET);</span>
+            //ID, PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME)
+<span class="fc" id="L53">            ps.setString(1, vehicleRegNumber);</span>
+<span class="fc" id="L54">            rs = ps.executeQuery();</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">            if (rs.next()) {</span>
+<span class="fc" id="L56">                ticket = new Ticket();</span>
+<span class="fc" id="L57">                ParkingSpot parkingSpot = new ParkingSpot(rs.getInt(1), ParkingType.valueOf(rs.getString(6)), false);</span>
+<span class="fc" id="L58">                ticket.setParkingSpot(parkingSpot);</span>
+<span class="fc" id="L59">                ticket.setId(rs.getInt(2));</span>
+<span class="fc" id="L60">                ticket.setVehicleRegNumber(vehicleRegNumber);</span>
+<span class="fc" id="L61">                ticket.setPrice(rs.getDouble(3));</span>
+<span class="fc" id="L62">                ticket.setInTime(rs.getTimestamp(4));</span>
+<span class="fc" id="L63">                ticket.setOutTime(rs.getTimestamp(5));</span>
+<span class="fc" id="L64">                ticket.setMember(recurentUser(vehicleRegNumber));</span>
+
+            }
+<span class="fc" id="L67">        } catch (Exception ex) {</span>
+<span class="fc" id="L68">            logger.error(&quot;Error fetching next available slot&quot;, ex);</span>
+        } finally {
+<span class="fc" id="L70">            dataBaseConfig.closeResultSet(rs);</span>
+<span class="fc" id="L71">            dataBaseConfig.closePreparedStatement(ps);</span>
+<span class="fc" id="L72">            dataBaseConfig.closeConnection(con);</span>
+
+        }
+<span class="fc" id="L75">        return ticket;</span>
+    }
+
+    public boolean updateTicket(Ticket ticket) {
+<span class="fc" id="L79">        Connection con = null;</span>
+<span class="fc" id="L80">        PreparedStatement ps = null;</span>
+        try {
+<span class="fc" id="L82">            con = dataBaseConfig.getConnection();</span>
+<span class="fc" id="L83">            ps = con.prepareStatement(DBConstants.UPDATE_TICKET);</span>
+<span class="fc" id="L84">            ps.setDouble(1, ticket.getPrice());</span>
+<span class="nc" id="L85">            ps.setTimestamp(2, new Timestamp(ticket.getOutTime().getTime()));</span>
+<span class="nc" id="L86">            ps.setInt(3,ticket.getId());</span>
+<span class="nc" id="L87">            ps.execute();</span>
+<span class="nc" id="L88">            return true;</span>
+<span class="fc" id="L89">        }catch (Exception ex){</span>
+<span class="fc" id="L90">            logger.error(&quot;Error saving ticket info&quot;,ex);</span>
+        }finally {
+<span class="fc" id="L92">            dataBaseConfig.closePreparedStatement(ps);</span>
+<span class="fc" id="L93">            dataBaseConfig.closeConnection(con);</span>
+        }
+<span class="fc" id="L95">        return false;</span>
+    }
+
+    public boolean recurentUser (String vehicleRegNumber) {
+<span class="fc" id="L99">        Connection con = null;</span>
+<span class="fc" id="L100">        int result = -1;</span>
+<span class="fc" id="L101">        ResultSet rs = null;</span>
+<span class="fc" id="L102">        PreparedStatement ps = null;</span>
+        try {
+<span class="fc" id="L104">            con = dataBaseConfig.getConnection();</span>
+<span class="fc" id="L105">            ps = con.prepareStatement(DBConstants.RECURRENT_USERS);</span>
+<span class="fc" id="L106">            ps.setString(1, vehicleRegNumber);</span>
+<span class="fc" id="L107">            rs = ps.executeQuery();</span>
+
+<span class="pc bpc" id="L109" title="1 of 2 branches missed.">            if (rs.next()) {</span>
+<span class="fc" id="L110">                result = rs.getInt(1);</span>
+            }
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">            if (result &gt; 1) {</span>
+<span class="nc" id="L113">                return true;</span>
+            }
+
+<span class="nc" id="L116">        } catch (Exception ex) {</span>
+<span class="nc" id="L117">            logger.error(&quot;Error&quot;, ex);</span>
+        } finally {
+<span class="fc" id="L119">            dataBaseConfig.closePreparedStatement(ps);</span>
+<span class="fc" id="L120">            dataBaseConfig.closeResultSet(rs);</span>
+<span class="fc" id="L121">            dataBaseConfig.closeConnection(con);</span>
+
+        }
+<span class="fc" id="L124">        return false;</span>
+    }
+
+}
+
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
