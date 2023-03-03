@@ -134,6 +134,10 @@ public class FareCalculatorServiceTest {
         fareCalculatorService.calculateFare(ticket);
         assertEquals(((0.95*0.75) * Fare.BIKE_RATE_PER_HOUR), ticket.getPrice() );
     }
+
+    //TODO: test les 5% de réduction pour les membres
+
+
     @Test
     public void calculateFareBikeWithLessThanOneHourParkingTime(){
         Date inTime = new Date();

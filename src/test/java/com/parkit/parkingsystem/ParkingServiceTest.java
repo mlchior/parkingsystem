@@ -68,4 +68,23 @@ public class ParkingServiceTest {
         verify(parkingSpotDAO, Mockito.times(1)).updateParking(any(ParkingSpot.class));
 
     }
+    @Test
+    void recurentUser() {
+        //create a new ticket with a new vehicleRegNumber a price, a parkingSpot, inTime and outTime and save it
+        Ticket ticket = new Ticket();
+        ParkingSpot parkingSpot = new ParkingSpot(2, ParkingType.CAR,false);
+        ticket.setParkingSpot(parkingSpot);
+        ticket.setVehicleRegNumber("123456");
+        ticket.setPrice(2);
+        ticket.setInTime(new Date());
+        ticket.setOutTime(new Date());
+        ticketDAO.saveTicket(ticket);
+        //create a new ticket with the same vehicleRegNumber and test if recurentUser return true
+
+
+
+
+
+
+    }
 }

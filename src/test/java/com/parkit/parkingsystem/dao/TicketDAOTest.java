@@ -1,5 +1,6 @@
 package com.parkit.parkingsystem.dao;
 
+import com.mysql.cj.jdbc.CallableStatement;
 import com.parkit.parkingsystem.constants.ParkingType;
 import com.parkit.parkingsystem.integration.config.DataBaseTestConfig;
 import com.parkit.parkingsystem.integration.service.DataBasePrepareService;
@@ -8,6 +9,9 @@ import com.parkit.parkingsystem.model.Ticket;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -74,6 +78,5 @@ class TicketDAOTest {
         Ticket ticketTest = ticketDAO.getTicket("ABCDEF");
         assertEquals(ticket.getParkingSpot() , ticketTest.getParkingSpot());
     }
-
 
 }
