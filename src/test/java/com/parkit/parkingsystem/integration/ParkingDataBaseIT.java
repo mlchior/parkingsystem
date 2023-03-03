@@ -60,18 +60,26 @@ public class ParkingDataBaseIT {
         parkingService.processIncomingVehicle();
         Ticket ticket = ticketDAO.getTicket("ABCDEF");
         assertEquals(2, parkingSpotDAO.getNextAvailableSlot(ParkingType.CAR));
-        //: check that a ticket is actualy saved in DB and Parking table is updated with availability
+        assertNotNull(ticket);
+        assertNotNull(ticket.getInTime());
+        assertEquals("ABCDEF", ticket.getVehicleRegNumber());
+
     }
 
 
 
     @Test
-    public void ParkingLotExitCar(){
+    public void ParkingLotExitCar() throws InterruptedException {
         testParkingACar();
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
         parkingService.processExitingVehicle();
-        //O: check that the fare generated and out time are populated correctly in the database
+        Thread.sleep(1000);
         Ticket ticket = ticketDAO.getTicket("ABCDEF");
+        //TODO: check that the fare generated and out time are populated correctly in the database
+        assertNotNull(ticket);
+        assertNotNull(ticket.getOutTime());
+        assertEquals(0.0, ticket.getPrice());
+        assertEquals(1, parkingSpotDAO.getNextAvailableSlot(ParkingType.CAR));
 
 
     }

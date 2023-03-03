@@ -19,8 +19,6 @@ public class ParkingSpotDAO {
     public int getNextAvailableSlot(ParkingType parkingType) {
 
         Connection con = null;
-
-
         int result = -1;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
@@ -32,8 +30,6 @@ public class ParkingSpotDAO {
             if (rs.next()) {
                 result = rs.getInt(1);
             }
-
-
         } catch (Exception ex) {
             logger.error("Error fetching next available slot", ex);
         } finally {
